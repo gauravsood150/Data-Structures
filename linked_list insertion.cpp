@@ -71,14 +71,14 @@ int main(void)
     node* head=NULL;
     int data;
     cin>>data;
-    /*-insert_start(&head,data);
+    insert_start(&head,data);
     insert_start(&head,5);
     insert_start(&head,6);
     insert_start(&head,9);
     insert_start(&head,3);
     insert_start(&head,1);
     insert_start(&head,0);
-    insert_start(&head,4);*/
+    insert_start(&head,4);
     insert_middle(head,9,16);
     insert_end(&head,99);
     insert_end(&head,98);
