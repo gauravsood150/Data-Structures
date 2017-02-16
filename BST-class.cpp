@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 
 class node
 {
@@ -30,6 +31,7 @@ public:
 	}
 	void insert(int);
 	void printInorder();
+	void levelOrder();
 
 };
 
@@ -80,15 +82,25 @@ void BST::_printInorder(node* root)
 
 void BST::levelOrder()
 {
-	queue<int> Q;
+	std::queue<node* > Q;
 	Q.push(root);
 	Q.push(NULL);
 	while(!Q.empty())
 	{
 		node* temp=Q.front();
 		Q.pop();
-		
-
+		if(temp!=NULL)
+		{
+			std::cout<<temp->data<<" ";
+			if(temp->left) Q.push(temp->left);
+			if(temp->right) Q.push(temp->right); 
+		}
+		else
+		{
+			if(!Q.empty())
+				Q.push(NULL);
+			std::cout<<std::endl;
+		}
 	}
 }
 
@@ -97,11 +109,13 @@ int main()
 	BST r;
 	r.insert(25);
 	r.insert(16);
-	r.insert(28);
+	r.insert(18);
 	r.insert(12);
 	r.insert(36);
 	r.insert(30);
 	r.insert(40);
 	r.printInorder();
+	std::cout<<std::endl;
+	r.levelOrder();
 	return 0;
 }
